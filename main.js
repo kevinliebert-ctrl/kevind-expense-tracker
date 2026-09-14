@@ -37,9 +37,9 @@ function updateBalance() {
     if (t.type === "income") income += t.amount;
     else expense += t.amount;
   });
-  balanceEl.textContent = `Saldo: Rp${income - expense}`;
-  incomeEl.textContent = `Total Pemasukan: Rp${income}`;
-  expenseEl.textContent = `Total Pengeluaran: Rp${expense}`;
+  balanceEl.textContent = `Saldo: Rp${(income - expense).toLocaleString("id-ID")}`;
+  incomeEl.textContent = `Total Pemasukan: Rp${income.toLocaleString("id-ID")}`;
+  expenseEl.textContent = `Total Pengeluaran: Rp${expense.toLocaleString("id-ID")}`;
 }
 
 // Render transaksi
@@ -57,7 +57,7 @@ function renderTransactions(list = transactions) {
 
     const amountEl = document.createElement("p");
     amountEl.setAttribute("data-testid", "transactionItemAmount");
-    amountEl.textContent = `Nominal: Rp${trx.amount}`;
+    amountEl.textContent = `Nominal: Rp${trx.amount.toLocaleString("id-ID")}`;
 
     const dateEl = document.createElement("p");
     dateEl.setAttribute("data-testid", "transactionItemDate");
@@ -68,7 +68,6 @@ function renderTransactions(list = transactions) {
     typeEl.textContent = `Tipe: ${trx.type === "income" ? "Pemasukan" : "Pengeluaran"}`;
 
     const editBtn = document.createElement("button");
-    editBtn.setAttribute("data-testid", "transactionItemEditTypeButton");
     editBtn.textContent = "Ubah Tipe";
     editBtn.addEventListener("click", () => {
       trx.type = trx.type === "income" ? "expense" : "income";
@@ -76,95 +75,5 @@ function renderTransactions(list = transactions) {
     });
 
     const deleteBtn = document.createElement("button");
-    deleteBtn.setAttribute("data-testid", "transactionItemDeleteButton");
     deleteBtn.textContent = "Hapus";
     deleteBtn.addEventListener("click", () => {
-      transactions = transactions.filter((t) => t.id !== trx.id);
-      dispatchUpdate();
-    });
-
-    const editFormBtn = document.createElement("button");
-    editFormBtn.textContent = "Edit";
-    editFormBtn.addEventListener("click", () => {
-      titleInput.value = trx.title;
-      amountInput.value = trx.amount;
-      dateInput.value = trx.date;
-      typeInput.value = trx.type;
-      form.dataset.editId = trx.id;
-    });
-
-    const btnContainer = document.createElement("div");
-    btnContainer.appendChild(editBtn);
-    btnContainer.appendChild(deleteBtn);
-    btnContainer.appendChild(editFormBtn);
-
-    card.appendChild(titleEl);
-    card.appendChild(amountEl);
-    card.appendChild(dateEl);
-    card.appendChild(typeEl);
-    card.appendChild(btnContainer);
-
-    if (trx.type === "income") incomeList.appendChild(card);
-    else expenseList.appendChild(card);
-  });
-
-  updateBalance();
-}
-
-// Custom Event untuk update
-function dispatchUpdate() {
-  document.dispatchEvent(new Event("transactionsUpdated"));
-}
-document.addEventListener("transactionsUpdated", () => {
-  renderTransactions();
-  saveToStorage();
-});
-
-// Submit form
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  if (!titleInput.value || Number(amountInput.value) < 1) {
-    alert("Judul tidak boleh kosong dan nominal minimal Rp1");
-    return;
-  }
-
-  if (form.dataset.editId) {
-    const id = Number(form.dataset.editId);
-    const index = transactions.findIndex((t) => t.id === id);
-    transactions[index] = {
-      id,
-      title: titleInput.value,
-      amount: Number(amountInput.value),
-      date: dateInput.value,
-      type: typeInput.value,
-    };
-    form.dataset.editId = "";
-  } else {
-    transactions.push({
-      id: +new Date(),
-      title: titleInput.value,
-      amount: Number(amountInput.value),
-      date: dateInput.value,
-      type: typeInput.value,
-    });
-  }
-
-  form.reset();
-  dispatchUpdate();
-});
-
-// Pencarian
-searchInput.addEventListener("input", () => {
-  const keyword = searchInput.value.toLowerCase();
-  if (keyword === "") {
-    renderTransactions();
-  } else {
-    const filtered = transactions.filter((t) =>
-      t.title.toLowerCase().includes(keyword)
-    );
-    renderTransactions(filtered);
-  }
-});
-
-// Load data awal
-window.addEventListener("DOMContentLoaded", loadFromStorage);
