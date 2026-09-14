@@ -27,5 +27,5 @@ Didesain dengan HTML, CSS, dan Google Fonts untuk tampilan modern dan responsif.
 ## 🚀 Cara Menjalankan
 1. Clone repository ini:
    ```bash
-   git clone https://github.com/kevinliebert-ctrl/gundam-website.git
+   git clone https://kevinliebert-ctrl.github.io/kevind-expense-tracker/
 
