@@ -1,31 +1,22 @@
-# 🌌 Website Gundam Kevin
+# 💰 Aplikasi Keuangan Sederhana
 
-Website bertema **Gundam** yang dibuat sebagai latihan proyek kelas Web Dasar Dicoding.  
-Berisi pengenalan sejarah Gundam, koleksi model kit (Gunpla), serta biodata penulis.  
-Didesain dengan HTML, CSS, dan Google Fonts untuk tampilan modern dan responsif.
+Aplikasi ini dibuat sebagai submission kelas **Belajar Dasar Pemrograman Web Dicoding**.  
+Tujuannya untuk membantu mencatat pemasukan dan pengeluaran, sekaligus menampilkan saldo secara otomatis.
 
 ---
 
 ## ✨ Fitur Utama
-- Halaman **Sejarah Gundam** (awal muncul di Jepang, masuk ke Indonesia, perkembangan hobi Gunpla)
-- Halaman **Koleksi Gundam** (varian model kit HG, MG, PG, komunitas hobi, event & kompetisi)
-- **Biodata Penulis** (Kevin Harris Mulyana, mahasiswa Informatika, profil Dicoding)
-- Navigasi antar bagian (Sejarah, Koleksi, Profil Dicoding)
-- Tampilan responsif untuk desktop & mobile
-- Custom CSS dengan tema Gundam (warna, font Quicksand, layout modern)
-
----
-
-## 🛠️ Teknologi
-- **HTML5** → struktur halaman
-- **CSS3** → styling, layout, responsivitas
-- **Google Fonts (Quicksand)** → tipografi modern
-- **JavaScript (opsional)** → interaktivitas tambahan
+- Form tambah transaksi (judul, nominal, tanggal, tipe).
+- Manipulasi DOM untuk menampilkan daftar transaksi.
+- Simpan & load data menggunakan **localStorage**.
+- Ringkasan saldo, total pemasukan, dan total pengeluaran.
+- Fitur interaktif: edit, hapus, ubah tipe transaksi.
+- Pencarian transaksi berdasarkan kata kunci.
 
 ---
 
 ## 🚀 Cara Menjalankan
 1. Clone repository ini:
    ```bash
-   git clone https://kevinliebert-ctrl.github.io/kevind-expense-tracker/
+   git clone https://github.com/username/expense-tracker.git
 
