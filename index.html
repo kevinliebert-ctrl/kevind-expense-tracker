@@ -2,114 +2,61 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Website Gundam Kevin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplikasi Keuangan Kevin</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- Font Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
   <header>
-    <h1>Pengenalan Mainan Gundam</h1>
-    <img src="Images/48754-karakter-robot-gundam.jpg" alt="Model kit Gundam RX-78" width="400">
-    <nav>
-      <a href="#sejarah">Sejarah</a>
-      <a href="#koleksi">Koleksi</a>
-      <a href="https://www.dicoding.com/users/kevin_harrism">Profil Dicoding</a>
-    </nav>
+    <h1>Aplikasi Keuangan</h1>
   </header>
 
   <main>
-    <!-- Bagian Sejarah -->
-    <article id="sejarah">
-      <h2>Sejarah Gundam</h2>
-      <p>
-        Gundam bermula dari serial anime <strong>Mobile Suit Gundam</strong> yang tayang perdana di Jepang pada 7 April 1979.
-        Diciptakan oleh Yoshiyuki Tomino dan diproduksi oleh Sunrise, seri ini memperkenalkan konsep "real robot" —
-        robot raksasa digunakan dalam konteks militer dan politik, berbeda dengan "super robot" yang lebih fantastis.
-        Konsep ini kemudian menjadi fondasi bagi banyak anime mecha setelahnya.
-      </p>
+    <!-- Form Transaksi -->
+    <section>
+      <h2>Tambah / Edit Transaksi</h2>
+      <form id="transactionForm">
+        <input type="text" id="title" placeholder="Judul transaksi" required>
+        <input type="number" id="amount" placeholder="Nominal (Rp)" required>
+        <input type="date" id="date" required>
+        <select id="type">
+          <option value="income">Pemasukan</option>
+          <option value="expense">Pengeluaran</option>
+        </select>
+        <button type="submit">Simpan</button>
+      </form>
+    </section>
 
-      <h3>Awal Muncul di Jepang</h3>
-      <img src="Images/1000081008-692d783ced6415767d556a02.jpg" alt="Poster Gundam 1979" width="300">
-      <p>
-        Pada awal penayangannya, Gundam tidak langsung sukses. Namun, penayangan ulang dan penjualan model kit Gunpla
-        membuat popularitasnya melonjak. RX‑78‑2 Gundam menjadi ikon budaya pop Jepang dan membuka jalan bagi
-        franchise Gundam yang terus berkembang hingga kini.
-      </p>
+    <!-- Ringkasan -->
+    <section class="dashboard">
+      <div><p id="balance">Saldo: Rp0</p></div>
+      <div><p id="incomeTotal">Total Pemasukan: Rp0</p></div>
+      <div><p id="expenseTotal">Total Pengeluaran: Rp0</p></div>
+    </section>
 
-      <h3>Masuk ke Indonesia</h3>
-      <img src="Images/anwar-maulana-sosok-di-balik-figur-gundam-berukuran-jumbo-di-subang-4_43.jpeg" alt="Gundam di Indonesia" width="300">
-      <p>
-        Gundam mulai dikenal di Indonesia lewat tayangan TV dan model kit impor pada tahun 1990-an.
-        Sejak itu, Gunpla berkembang jadi hobi populer di kalangan anak muda, terutama karena proses perakitannya
-        melatih kesabaran, kreativitas, dan ketelitian.
-      </p>
+    <!-- Pencarian -->
+    <section>
+      <h2>Pencarian Transaksi</h2>
+      <input type="text" id="search" placeholder="Cari transaksi...">
+    </section>
 
-      <h3>Perkembangan Hobi Gunpla</h3>
-      <img src="Images/pameran-hobi-bandai-spirits-di-jakarta-4.jpeg" alt="Event Gunpla di Jakarta" width="300">
-      <p>
-        Gunpla menjadi fenomena global, menyumbang lebih dari 90% pasar model plastik karakter di Jepang.
-        Di Indonesia, komunitas Gunpla aktif mengadakan pameran, workshop, dan kompetisi.
-        Event ini menjadi ajang kreativitas sekaligus memperkuat rasa kebersamaan antar penggemar.
-      </p>
-    </article>
+    <!-- Daftar Transaksi -->
+    <section>
+      <h2>Daftar Pemasukan</h2>
+      <div id="incomeList"></div>
 
-    <!-- Bagian Koleksi -->
-    <article id="koleksi">
-      <h2>Koleksi Gundam</h2>
-      <img src="Images/2-93bda385963db80e8617981d768790d2-d2ec0c02b2184ee4b47b9add5cfa2691.avif" alt="Koleksi Gundam" width="300">
-      <p>
-        Koleksi Gundam terdiri dari berbagai model kit, mulai dari High Grade (HG) hingga Master Grade (MG).
-        Setiap model memiliki tingkat kesulitan dan detail berbeda, memberikan pengalaman merakit yang unik.
-        Koleksi ini bukan hanya sekadar hobi, tetapi juga sarana untuk mengekspresikan kreativitas dan ketelitian.
-      </p>
-
-      <h3>Varian Model Kit</h3>
-      <img src="Images/1146653798.webp" alt="Varian Model Kit Gundam" width="300">
-      <p>
-        Varian model kit Gundam meliputi HG (High Grade), MG (Master Grade), dan PG (Perfect Grade).
-        HG cocok untuk pemula karena mudah dirakit, MG menawarkan detail lebih kompleks, sedangkan PG
-        memberikan pengalaman merakit dengan detail sangat tinggi dan ukuran besar.
-      </p>
-
-      <h3>Komunitas Hobi Aktif</h3>
-      <img src="Images/Komunitas-Gunpla.jpg" alt="Komunitas Gunpla Indonesia" width="300">
-      <p>
-        Komunitas Gunpla di Indonesia aktif mengadakan event, workshop, dan pameran.
-        Ini menjadi wadah berbagi tips, trik, dan hasil karya antar penggemar, sekaligus memperkuat jaringan
-        hobi di berbagai kota besar.
-      </p>
-
-      <h3>Event dan Kompetisi</h3>
-      <p>
-        Gunpla sering dipamerkan dalam event dan kompetisi, baik lokal maupun internasional.
-        Ajang ini menjadi tempat penggemar menunjukkan keterampilan merakit sekaligus mencari inspirasi dari karya orang lain.
-        Kompetisi juga mendorong inovasi dalam desain serta modifikasi model kit Gundam.
-      </p>
-    </article>
-
-    <!-- Aside Biodata -->
-    <aside>
-      <h2>Tentang Penulis</h2>
-      <img src="Images/kevin.jpg" alt="Foto Kevin" width="200">
-      <p>
-        Saya Kevin Harris Mulyana, mahasiswa Informatika penyuka game, anime dan juga sedang belajar web development di Dicoding.
-        Website ini dibuat sebagai latihan proyek untuk kelas Web Dasar.
-      </p>
-    </aside>
+      <h2>Daftar Pengeluaran</h2>
+      <div id="expenseList"></div>
+    </section>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Kevin Harris Mulyana | Website Gundam</p>
+    <p>&copy; 2026 Kevin Harris Mulyana | Aplikasi Keuangan</p>
   </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
